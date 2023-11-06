@@ -1,6 +1,7 @@
 version: "3"
 services:
   mysql57:
+    platform: linux/x86_64
     build: ./mysql_57/
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -8,11 +9,3 @@ services:
       - ./mysql/db:/docker-entrypoint-initdb.d
     ports:
       - "4306:3306"
-  mysql55:
-    build: ./mysql_55/
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    volumes:
-      - ./mysql/db:/docker-entrypoint-initdb.d
-    ports:
-      - "4307:3306"
